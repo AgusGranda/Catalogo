@@ -57,3 +57,7 @@ F:\Programacion\C#\Nivel 3\Catalogo\Catalogo\obj\Debug\Catalogo.csproj.CoreCompi
 F:\Programacion\C#\Nivel 3\Catalogo\Catalogo\obj\Debug\Catalogo.csproj.CopyComplete
 F:\Programacion\C#\Nivel 3\Catalogo\Catalogo\obj\Debug\Catalogo.dll
 F:\Programacion\C#\Nivel 3\Catalogo\Catalogo\obj\Debug\Catalogo.pdb
+F:\Programacion\C#\Nivel 3\Catalogo\Catalogo\bin\dominio.dll
+F:\Programacion\C#\Nivel 3\Catalogo\Catalogo\bin\negocio.dll
+F:\Programacion\C#\Nivel 3\Catalogo\Catalogo\bin\dominio.pdb
+F:\Programacion\C#\Nivel 3\Catalogo\Catalogo\bin\negocio.pdb

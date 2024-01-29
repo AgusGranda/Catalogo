@@ -26,12 +26,6 @@
                     <h5 class="card-title">Precio del producto</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Marca</h6>
                     <p class="card-text">Una tremenda descripcion del producto</p>
-
-                    <div>
-                        <a href="#" class="btn btn-primary">Editar</a>
-                        <a href="#" class="btn btn-secondary">Eliminar</a>
-                    </div>
-
                 </div>
             </div>
         </div>

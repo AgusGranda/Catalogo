@@ -4,9 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <h1>Soy el formulario</h1>
-
     <div class="row">
         <div class="col-2"></div>
         <div class="col-4">
@@ -24,29 +21,30 @@
                 <asp:TextBox ID="TextBox3" class="form-control" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3 ">
-                <label for="txtMarca" class="form-label">Marca</label>
-                <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox>
+                <label for="ddlMarca" class="form-label">Marca</label>
+                <asp:DropDownList ID="ddlMarca" CssClass="form-control" runat="server"></asp:DropDownList>
+
             </div>
             <div class="mb-3 ">
-                <label for="txtCategoria" class="form-label">Categoria</label>
-                <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox>
+                <label for="ddlCategoria" class="form-label">Categoria</label>
+                <asp:DropDownList ID="ddlCategoria" CssClass="form-control" runat="server"></asp:DropDownList>
             </div>
 
         </div>
         <div class="col-4">
             <div class="mb-3 ">
                 <label for="txtPrecio" class="form-label">Precio</label>
-                <asp:TextBox ID="TextBox5" class="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPrecio" class="form-control" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3 ">
                 <label for="txtImagen" class="form-label">Imagen</label>
-                <asp:TextBox ID="TextBox4" class="form-control" runat="server"></asp:TextBox>
+                <input ID="txtImagen" type="File" class="form-control" runat="server" />
             </div>
             <div class="mb-3 ">
                 <asp:Image ID="imgProductoNuevo" runat="server" ImageUrl="..." />
             </div>
             <asp:Button ID="btnAceptar" class="btn btn-primary" runat="server" Text="Aceptar" />
-            <a href="#" class="btn btn-secondary">Cancelar</a>
+            <a href="Administracion.aspx" class="btn btn-secondary">Cancelar</a>
         </div>
 
         <div class="col-2"></div>
