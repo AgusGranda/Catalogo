@@ -4,14 +4,58 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
+using negocio;
 
 namespace Catalogo
 {
     public partial class Detalle : System.Web.UI.Page
     {
+        public Articulo Seleccionado{ get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                int id = int.Parse(Request.QueryString["id"]);
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                Seleccionado = articuloNegocio.filtrarPorId(id);
+
+                if (IsValidImageUrl(Seleccionado.ImagenUrl))
+                    imagenProductoSeleccionado.Src = Seleccionado.ImagenUrl;
+                else
+                    imagenProductoSeleccionado.Src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg";
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error",ex);
+            }
+            
+
+
+
 
         }
+
+        private bool IsValidImageUrl(string url)
+        {
+            try
+            {
+                using (var client = new System.Net.WebClient())
+                {
+                    using (var stream = client.OpenRead(url))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

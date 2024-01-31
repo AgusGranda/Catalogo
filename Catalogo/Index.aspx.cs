@@ -15,9 +15,27 @@ namespace Catalogo
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            lista = negocio.listarConSp();
+            lista = negocio.listar();
+            
 
+        }
 
+        public bool IsValidImageUrl(string url)
+        {
+            try
+            {
+                using (var client = new System.Net.WebClient())
+                {
+                    using (var stream = client.OpenRead(url))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
