@@ -26,29 +26,26 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="Index.aspx">Inicio</a>
                                 </li>
-                                <li>
-                                    <a class="nav-link" href="#">Mi Perfil</a>
-                                </li>
+                                <%if (LogueadoAdmin) {  %>
                                 <li>
                                     <a class="nav-link" href="Administracion.aspx">Administracion</a>
                                 </li>
+                                <%} %>
                             </ul>
                             <ul class="navbar-nav mb-3 mb-lg-0">
-                                <%//if (!(negocio.Seguridad.sesionActiva(Session["usuario"])))
-//{ %>
+                                <%if (!(negocio.Seguridad.usuarioLogueado(Session["usuario"]))){ %>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Login.aspx">Login</a>
                                 </li>
                                 <li>
                                     <a class="nav-link" href="Registro.aspx">Registro</a>
                                 </li>
-                                <%//}
-//else
-//{  %>
+                                <%}
+                                else{  %>
                                 <li class="nav-item">
-                                    <asp:Button class="nav-link" ID="btnCerrarSession" runat="server" Text="Cerrar Sesion" />
+                                    <asp:Button class="nav-link" ID="btnCerrarSession" runat="server" Text="Cerrar Sesion"  OnClick="btnCerrarSession_Click"/>
                                 </li>
-                                <% //}%>
+                                <% }%>
                                 <li>
                                     <asp:Image ID="imgPerfil" Style="height: 40px; width: 40px; border-radius: 50%" runat="server" />
                                 </li>
@@ -58,8 +55,7 @@
                 </nav>
             </header>
 
-            <div class="container">
-                <hr />
+            <div class="container mt-5">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>

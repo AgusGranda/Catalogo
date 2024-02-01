@@ -17,12 +17,5 @@ namespace dominio
         public string UrlImagenPerfil { get; set; }
         public bool Admin { get; set; }
 
-
-        public Usuario(string email, string pass)
-        {
-            Email = email;
-            Pass = pass;
-        }
-
     }
 }

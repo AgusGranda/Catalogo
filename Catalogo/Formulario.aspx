@@ -12,14 +12,17 @@
             <div class="mb-3">
                 <label for="txtCodigo" class="form-label">Codigo</label>
                 <asp:TextBox ID="txtCodigo" class="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="Codigo requerido" ControlToValidate="txtCodigo" runat="server" style="color:red; font-size:13px;" />
             </div>
             <div class="mb-3">
                 <label for="txtNombre" class="form-label">Nombre</label>
                 <asp:TextBox ID="txtNombre" class="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="Nombre requerido" ControlToValidate="txtNombre" runat="server" style="color:red; font-size:13px;" />
             </div>
             <div class="mb-3 ">
                 <label for="txtDescripcion" class="form-label">Descripcion</label>
                 <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="Descripcion requerida" ControlToValidate="txtDescripcion" runat="server" style="color:red; font-size:13px;"/>
             </div>
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
@@ -41,12 +44,15 @@
             <div class="mb-3 ">
                 <label for="txtPrecio" class="form-label">Precio</label>
                 <asp:TextBox ID="txtPrecio" class="form-control" runat="server"></asp:TextBox>
+                <asp:RegularExpressionValidator ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ControlToValidate="txtPrecio" runat="server" style="color:red; font-size:13px;" />
+                <asp:RequiredFieldValidator ErrorMessage="Precio requerido" ControlToValidate="txtPrecio" runat="server"  style="color:red; font-size:13px;"/>
             </div>
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
                     <div class="mb-3 ">
                         <label for="txtImagen" class="form-label">Imagen</label>
                         <asp:TextBox ID="txtImagen" CssClass="form-control" runat="server" OnTextChanged="txtImagen_TextChanged" AutoPostBack="true"></asp:TextBox>
+
                     </div>
                     <div class="mb-3 ">
                         <asp:Image ID="imgProductoNuevo" runat="server" ImageUrl="..." style="max-height:220px" />
