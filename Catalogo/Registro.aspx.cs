@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,6 +25,9 @@ namespace Catalogo
                 Page.Validate();
                 if (!(Page.IsValid))
                     return;
+
+
+
                 UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
                 Usuario nuevo = new Usuario();
 
@@ -32,14 +36,24 @@ namespace Catalogo
 
                 if (imgPerfil.Value != "")
                 {
+                    Random random = new Random();
+                    string numeroRandom = random.Next(1,1000).ToString();
+
                     string ruta = Server.MapPath("./Images/Usuarios/");
-                    imgPerfil.PostedFile.SaveAs(ruta + "perfil-" + nuevo.Id + ".jpg");
-                    nuevo.UrlImagenPerfil = "perfil-" + nuevo.Id + ".jpg";
+                    string nombreFoto = "perfil-" + numeroRandom + "-" + nuevo.Email + ".jpg";
+
+                    imgPerfil.PostedFile.SaveAs(ruta + nombreFoto);
+                    nuevo.UrlImagenPerfil = nombreFoto;
                 }
 
+                if (!(usuarioNegocio.filtrar(nuevo.Email)))
+                {
+                    usuarioNegocio.registro(nuevo);
+                    Response.Redirect("Index.aspx", false);
 
-                usuarioNegocio.registro(nuevo);
-                Response.Redirect("Index.aspx",false);
+                }
+                else
+                    lblError.Text = "Este usuario ya existe";
 
             }
             catch (Exception ex)
@@ -48,5 +62,6 @@ namespace Catalogo
                 Session.Add("error", ex);
             }
         }
+    
     }
 }

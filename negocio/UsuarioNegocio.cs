@@ -52,7 +52,35 @@ namespace negocio
 			}
         }
 
-		public void registro(Usuario usuario)
+		public bool filtrar(string email)
+		{
+			AccesoDatos datos = new AccesoDatos();
+			try
+			{
+				datos.setearProcedure("storedFiltroUsuario");
+				datos.cargarParametros("@email",email);
+				datos.ejecutarLectura();
+
+				if (datos.Lector.Read())
+					return true;
+				else 
+					return false;
+				
+
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			finally
+			{
+				datos.cerrarConexion();
+			}
+		}
+
+
+        public void registro(Usuario usuario)
 		{
 			AccesoDatos datos = new AccesoDatos();
 
