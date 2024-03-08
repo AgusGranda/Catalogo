@@ -67,7 +67,7 @@ namespace Catalogo
                 else
                     articuloNegocio.agregar(nuevo);
                
-                Response.Redirect("Index.aspx");
+                Response.Redirect("Index.aspx", false);
 
             }
             catch (Exception ex)
